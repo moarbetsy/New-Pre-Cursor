@@ -12,7 +12,7 @@ Rules:
 
 ## Session: 2026-01-30 19:00 — Implement agent protocol + step ledger
 Owner: agent
-Repo state: main @ 7157f05
+Repo state: main @ 080b76d
 
 ### Step 1 — Add .cursor/rules and agent-protocol.mdc
 - **Objective:** Make Cursor see protocol rules at repo root so agents follow AGENT_PROTOCOL.md.

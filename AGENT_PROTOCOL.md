@@ -43,8 +43,8 @@ Violating these is a *stop event*.
    - Do not delete lockfiles.
    - Only update lockfiles via the blessed toolchain.
 
-7) **No global machine changes without consent**
-   - Never modify user-level shell profiles (`$PROFILE`, dotfiles, system PATH) unless the human explicitly says so.
+7) **No machine edits without explicit consent**
+   - Never modify user-level shell profiles (`$PROFILE`), dotfiles, system PATH, or global machine settings unless the human explicitly asks.
    - Keeps the agent from “helpfully” rewriting the operator’s computer.
 
 ---
