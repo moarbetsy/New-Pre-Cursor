@@ -44,8 +44,13 @@ Violating these is a *stop event*.
    - Only update lockfiles via the blessed toolchain.
 
 7) **No machine edits without explicit consent**
-   - Never modify user-level shell profiles (`$PROFILE`), dotfiles, system PATH, or global machine settings unless the human explicitly asks.
-   - Keeps the agent from “helpfully” rewriting the operator’s computer.
+- Never modify user-level shell profiles (`$PROFILE`), dotfiles, system PATH, or global machine settings unless the human explicitly asks.
+- Keeps the agent from “helpfully” rewriting the operator’s computer.
+
+8) **Preserve Markdown formatting**
+- When editing .md/.mdc files, preserve line breaks and headings.
+- Do not make inline replacements that collapse multiple lines into one.
+- After editing, quickly re-open the file to confirm formatting looks normal.
 
 ---
 
