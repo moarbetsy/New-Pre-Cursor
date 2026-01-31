@@ -1,3 +1,6 @@
 .precursor/state.json
 .precursor/backups/
 .precursor/bin/
+
+# Avoid committing a nested clone of this repo
+New-Pre-Cursor/
