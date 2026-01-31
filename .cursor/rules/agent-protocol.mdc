@@ -1,0 +1,15 @@
+---
+description: Agent protocol — step-ledger discipline and failure loop
+alwaysApply: true
+---
+
+# Agent protocol (root)
+
+When working in this repo:
+
+1. **Follow [AGENT_PROTOCOL.md](AGENT_PROTOCOL.md)** for priority tiers, workflow, and file-update rules.
+2. **Work in numbered steps** using [STEP_TEMPLATE.md](STEP_TEMPLATE.md). One step → verify → then next.
+3. **After every step**, append one entry to [STEPLOG.md](STEPLOG.md) with objective, files changed, commands + exit codes, verification result, and next (continue or stop).
+4. **If a command fails**: STOP. Follow the Failure Loop in AGENT_PROTOCOL.md (preflight, retry once, minimal fix). Log real breakage to [REPORT.md](REPORT.md) only; never put secrets there.
+
+Start each session with a new `## Session: ...` header in STEPLOG.md (Owner, Repo state).
