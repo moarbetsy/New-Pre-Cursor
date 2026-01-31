@@ -43,6 +43,10 @@ Violating these is a *stop event*.
    - Do not delete lockfiles.
    - Only update lockfiles via the blessed toolchain.
 
+7) **No global machine changes without consent**
+   - Never modify user-level shell profiles (`$PROFILE`, dotfiles, system PATH) unless the human explicitly says so.
+   - Keeps the agent from “helpfully” rewriting the operator’s computer.
+
 ---
 
 ### Tier 2 — DEFAULT POLICY (SHOULD)
@@ -176,3 +180,11 @@ Stop and ask for direction (or propose minimal options) if:
 - You’re about to “upgrade the world” instead of fixing the target
 
 Boring is beautiful. Determinism is mercy.
+
+---
+
+## 6) Agent task prompt (paste when starting work)
+
+Use this verbatim to keep the agent on a leash:
+
+> Follow AGENT_PROTOCOL.md. Work only in numbered steps using STEP_TEMPLATE.md. After each step, append a STEPLOG.md entry including commands + exit codes + verification. Do NOT modify shell profiles or global machine settings. If any command fails, follow the Failure Loop and log real breakage to REPORT.md (no secrets). Stop after Step 1 unless I say continue.

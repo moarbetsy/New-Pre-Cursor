@@ -4,4 +4,9 @@ alwaysApply: true
 ---
 
 # Agent protocol
-Follow AGENT_PROTOCOL.md. Use STEP_TEMPLATE.md; append to STEPLOG.md after each step.
+Follow AGENT_PROTOCOL.md.
+
+Use STEP_TEMPLATE.md; append to STEPLOG.md after each step.
+
+If a command fails: STOP. Follow the Failure Loop in AGENT_PROTOCOL.md.
+Log real breakage to REPORT.md only; never put secrets there.
