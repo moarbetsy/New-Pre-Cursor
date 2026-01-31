@@ -1,0 +1,22 @@
+---
+description: Web/JS/TS development rules (bun, biome, tsc)
+alwaysApply: false
+---
+
+# Web/JS/TS Development Rules
+
+## Toolchain
+- Runtime: bun
+- Linter: biome
+- Formatter: biome
+- Type Checker: tsc
+
+## Commands
+- Install: `bun install`
+- Lint: `bunx biome check .`
+- Format: `bunx biome format --write .`
+- Type Check: `bunx tsc --noEmit`
+
+## Lockfile
+- Prefer: `bun.lock` (text format)
+- Legacy: `bun.lockb` (binary, accepted but not preferred)

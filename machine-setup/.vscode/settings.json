@@ -1,0 +1,45 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}"
+  ],
+  "editor.formatOnSave": true,
+  "terminal.integrated.defaultProfile.windows": "PowerShell 7 (NoProfile)",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "PowerShell 7 (NoProfile)": {
+      "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile"
+      ]
+    }
+  },
+  "cursorpyright.analysis.extraPaths": [
+    "${workspaceFolder}"
+  ],
+  "powershell.startAutomatically": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.venv": true
+  },
+  "powershell.enableProfileLoading": false,
+  "powershell.integratedConsole.showOnStartup": false,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/__pycache__/**": true,
+    "**/.venv/**": true
+  },
+  "[python]": {
+    "editor.formatOnSave": true
+  },
+  "[powershell]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.powershell"
+  }
+}

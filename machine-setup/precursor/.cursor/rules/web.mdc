@@ -1,0 +1,3 @@
+{
+  "content": "# Web/JS/TS Development Rules\n\n## Toolchain\n- Runtime: bun\n- Linter: biome\n- Formatter: biome\n- Type Checker: tsc\n\n## Commands\n- Install: `bun install`\n- Lint: `bunx biome check .`\n- Format: `bunx biome format --write .`\n- Type Check: `bunx tsc --noEmit`\n\n## Lockfile\n- Prefer: `bun.lock` (text format)\n- Legacy: `bun.lockb` (binary, accepted but not preferred)\n"
+}

@@ -1,0 +1,9 @@
+{
+	"recommendations": [
+		"biomejs.biome",
+		"dprint.dprint",
+		"ms-python.python",
+		"rust-lang.rust-analyzer",
+		"ms-vscode.powershell"
+	]
+}

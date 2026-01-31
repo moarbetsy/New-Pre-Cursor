@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "precursor": {
+      "command": "bun",
+      "args": [
+        ".precursor/mcp/server.ts"
+      ],
+      "env": {}
+    }
+  }
+}

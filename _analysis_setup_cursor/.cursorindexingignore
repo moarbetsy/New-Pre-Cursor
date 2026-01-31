@@ -1,0 +1,9 @@
+.cursorkit/
+.venv/
+node_modules/
+dist/
+build/
+out/
+**/__pycache__/
+**/*.min.js
+**/*.map

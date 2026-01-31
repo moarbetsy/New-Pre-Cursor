@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "ms-vscode.powershell",
+    "charliermarsh.ruff",
+    "tamasfe.even-better-toml",
+    "usernamehw.errorlens"
+  ]
+}

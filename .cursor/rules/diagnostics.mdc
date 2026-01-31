@@ -1,0 +1,11 @@
+---
+description: Self-healing diagnostics for common workspace issues
+alwaysApply: false
+---
+
+# Diagnostics
+
+Quick reference for common issues and their solutions:
+
+- **Command Not Found**: Run `precursor.ps1 -Setup` or `cursorkit -Setup` if using setup-cursor
+- **Terminal Hangs**: Switch to Windows Terminal to isolate issues

@@ -1,0 +1,11 @@
+.precursor/state.json
+.precursor/backups/
+.precursor/bin/
+.venv/
+venv/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+.next/
+.svelte-kit/

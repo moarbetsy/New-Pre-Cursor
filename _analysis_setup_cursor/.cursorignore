@@ -1,0 +1,28 @@
+# Secrets
+.env
+.env.*
+**/*secret*
+**/*token*
+**/*apikey*
+**/*.pfx
+**/*.pem
+**/*.key
+
+# CursorKit backups
+.cursorkit/
+
+# Dependencies / Caches
+.venv/
+node_modules/
+**/__pycache__/
+**/*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Builds / Logs
+dist/
+build/
+out/
+logs/
+*.log

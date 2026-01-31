@@ -1,0 +1,11 @@
+[project]
+name = "setup-cursor"
+version = "0.1.0"
+description = "Cursor + PowerShell development environment setup"
+authors = [{name = "Setup Cursor Project"}]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "pillow>=10.0.0"
+]

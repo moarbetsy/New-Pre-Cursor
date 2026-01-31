@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+
+node_modules/
+dist/
+build/
+
+logs/
+.DS_Store
+
+# Cursor settings template (copied to new projects via bootstrap)
+cursor-settings.json
+

@@ -1,0 +1,72 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  ci:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      # Bun (canonical JS lane)
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: ".bun-version"
+
+      - name: Install JS deps (lock enforced; requires bun.lock)
+        run: bun install --frozen-lockfile
+
+      # Python
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14.2"
+
+      - name: Install uv (pinned)
+        run: pipx install "uv==0.9.27"
+
+      - name: Install Python deps (lock enforced; requires uv.lock)
+        run: uv sync --frozen
+
+      # Rust
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.93.0"
+          components: rustfmt, clippy
+
+      - name: Install just
+        run: sudo apt-get update && sudo apt-get install -y just
+
+      - name: Run CI checks (check-mode only)
+        run: just ci
+
+  # Optional: manual break-glass Node runtime validation (not a default lane)
+  node-compat:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: ".bun-version"
+      - run: bun install --frozen-lockfile
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: "1.93.0"
+          components: rustfmt, clippy
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14.2"
+      - run: pipx install "uv==0.9.27"
+      - run: uv sync --frozen
+      - name: Install just
+        run: sudo apt-get update && sudo apt-get install -y just
+      - name: Node runtime typecheck/test (break-glass)
+        run: |
+          just web-type-node
+          just web-test-node

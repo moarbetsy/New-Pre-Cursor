@@ -1,0 +1,16 @@
+{
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.venv/**": true,
+    "**/venv/**": true,
+    "**/target/**": true,
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/.precursor/**": true
+  },
+  "files.exclude": {
+    "**/.precursor/bin/**": true
+  }
+}

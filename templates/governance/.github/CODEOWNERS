@@ -1,0 +1,67 @@
+# CODEOWNERS
+#
+# This file defines code ownership for this repository, aligned with the
+# "one rewriter per extension" ownership philosophy (see docs/OWNERSHIP.md).
+#
+# Format: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Replace @placeholder-team with your actual team/individual GitHub usernames.
+
+# Governance and configuration files
+/CONSTITUTION.md @placeholder-team
+/docs/ @placeholder-team
+/.github/ @placeholder-team
+/justfile @placeholder-team
+
+# Python (Ruff owns rewrites)
+*.py @placeholder-team
+/pyproject.toml @placeholder-team
+/uv.lock @placeholder-team
+/.python-version @placeholder-team
+/pyrightconfig.json @placeholder-team
+
+# Web/JS/TS (Biome owns rewrites)
+*.ts @placeholder-team
+*.tsx @placeholder-team
+*.js @placeholder-team
+*.jsx @placeholder-team
+*.json @placeholder-team
+*.css @placeholder-team
+*.scss @placeholder-team
+*.sass @placeholder-team
+*.html @placeholder-team
+/package.json @placeholder-team
+/bun.lock @placeholder-team
+/.bun-version @placeholder-team
+/biome.json @placeholder-team
+/tsconfig.json @placeholder-team
+
+# Docs/Data (dprint owns rewrites)
+*.md @placeholder-team
+*.yaml @placeholder-team
+*.yml @placeholder-team
+*.toml @placeholder-team
+/dprint.json @placeholder-team
+
+# Rust (cargo fmt owns rewrites)
+*.rs @placeholder-team
+/Cargo.toml @placeholder-team
+/Cargo.lock @placeholder-team
+/rust-toolchain.toml @placeholder-team
+
+# PowerShell (PSScriptAnalyzer for linting)
+*.ps1 @placeholder-team
+*.psd1 @placeholder-team
+/PSScriptAnalyzerSettings.psd1 @placeholder-team
+
+# Scripts and tooling
+/scripts/ @placeholder-team
+
+# CI/CD
+/.github/workflows/ @placeholder-team
+
+# Root config files
+/.gitignore @placeholder-team
+/LICENSE @placeholder-team
+/SECURITY.md @placeholder-team
+/CONTRIBUTING.md @placeholder-team

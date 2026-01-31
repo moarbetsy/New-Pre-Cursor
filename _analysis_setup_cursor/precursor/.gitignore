@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.precursor/bin/
+.precursor/state.json
+.precursor/backups/
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
+.env
+.env.local
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Precursor patterns
+.venv/
+venv/
+__pycache__/
+*.pyc
+.next/
+.svelte-kit/

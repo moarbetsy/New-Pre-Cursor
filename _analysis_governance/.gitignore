@@ -1,0 +1,28 @@
+# Node
+node_modules/
+.bun/
+bun.lockb
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+dist/
+build/
+*.egg-info/
+
+# Rust
+target/
+
+# OS/editor
+.DS_Store
+
+# Forbidden JS lockfiles (policy)
+package-lock.json
+npm-shrinkwrap.json
+pnpm-lock.yaml
+yarn.lock

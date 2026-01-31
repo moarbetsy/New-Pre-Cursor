@@ -1,0 +1,8 @@
+{
+  "name": "my-project",
+  "private": true,
+  "scripts": {
+    "dev": "node -e \"console.log('OK: Node is running')\""
+  }
+}
+

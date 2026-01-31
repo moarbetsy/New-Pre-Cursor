@@ -1,0 +1,115 @@
+set shell := ["bash", "-eu", "-o", "pipefail", "-c"]
+set windows-shell := ["pwsh", "-NoProfile", "-Command"]
+default: ci
+
+# ---------- JS lockfile law ----------
+js-lockfile-law:
+    bun run --silent lockfile:check
+
+# ---------- Python lockfile law ----------
+py-lockfile-law:
+    bun ./scripts/run-if-path.ts pyproject.toml -- bun ./scripts/py-lockfile-law.ts
+
+# ---------- Python ----------
+py-fmt:
+    bun ./scripts/run-if-path.ts pyproject.toml -- uv run --frozen ruff format .
+
+py-fmt-check:
+    bun ./scripts/run-if-path.ts pyproject.toml -- uv run --frozen ruff format --check .
+
+py-lint:
+    bun ./scripts/run-if-path.ts pyproject.toml -- uv run --frozen ruff check . --fix
+
+py-lint-check:
+    bun ./scripts/run-if-path.ts pyproject.toml -- uv run --frozen ruff check .
+
+py-type:
+    bun ./scripts/run-if-path.ts pyproject.toml -- uv run --frozen pyright
+
+py-test:
+    bun ./scripts/run-if-path.ts pyproject.toml -- bun ./scripts/pytest-ci.ts
+
+# ---------- Web (Bun default) ----------
+web-fmt:
+    bun ./scripts/run-if-path.ts package.json -- bun run --silent biome:fmt
+
+web-fmt-check:
+    bun ./scripts/run-if-path.ts package.json -- bun run --silent biome:fmt:check
+
+web-lint:
+    bun ./scripts/run-if-path.ts package.json -- bun run --silent biome:lint
+
+web-lint-check:
+    bun ./scripts/run-if-path.ts package.json -- bun run --silent biome:lint:check
+
+web-type:
+    bun ./scripts/run-if-path.ts package.json -- bun run --silent typecheck
+
+web-test:
+    bun ./scripts/run-if-path.ts package.json -- bun run --silent test
+
+# ---------- Docs / Data ----------
+docs-fmt:
+    bunx dprint fmt
+
+docs-fmt-check:
+    bunx dprint check
+
+# ---------- Node break-glass runtime-only ----------
+web-type-node:
+    bun run --silent typecheck:node
+
+web-test-node:
+    bun run --silent test:node
+
+# ---------- Rust ----------
+rs-fmt:
+    bun ./scripts/run-if-path.ts Cargo.toml -- cargo fmt
+
+rs-fmt-check:
+    bun ./scripts/run-if-path.ts Cargo.toml -- cargo fmt -- --check
+
+rs-lint:
+    bun ./scripts/run-if-path.ts Cargo.toml -- cargo clippy --all-targets --all-features -- -D warnings
+
+rs-test:
+    bun ./scripts/run-if-path.ts Cargo.toml -- cargo test
+
+# ---------- PowerShell ----------
+ps-lint:
+    pwsh -NoProfile -ExecutionPolicy Bypass -Command "if (-not (Get-Command Invoke-ScriptAnalyzer -ErrorAction SilentlyContinue)) { Install-Module PSScriptAnalyzer -Scope CurrentUser -Force -Repository PSGallery }; Invoke-ScriptAnalyzer -Path . -Recurse -Settings ./PSScriptAnalyzerSettings.psd1 -EnableExit"
+
+# ---------- Doctor (diagnostics) ----------
+doctor:
+    bash ./scripts/doctor.sh
+
+doctor-windows:
+    pwsh -NoProfile -ExecutionPolicy Bypass -File ./scripts/doctor.ps1
+
+# ---------- Clean (remove generated artifacts) ----------
+clean:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    echo "Cleaning generated artifacts..."
+    rm -rf node_modules .venv target .pytest_cache .ruff_cache .mypy_cache .coverage dist build *.egg-info
+    echo "Clean complete."
+
+clean-windows:
+    pwsh -NoProfile -ExecutionPolicy Bypass -Command "Write-Host 'Cleaning generated artifacts...'; Remove-Item -Recurse -Force -ErrorAction SilentlyContinue node_modules, .venv, target, .pytest_cache, .ruff_cache, .mypy_cache, .coverage, dist, build; Get-ChildItem -Filter '*.egg-info' -Recurse -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force; Write-Host 'Clean complete.'"
+
+# ---------- Meta ----------
+fmt: py-fmt web-fmt docs-fmt rs-fmt
+fmt-check: py-fmt-check web-fmt-check docs-fmt-check rs-fmt-check
+
+lint: py-lint web-lint rs-lint ps-lint
+lint-check: py-lint-check web-lint-check rs-lint ps-lint
+
+type: py-type web-type
+test: py-test web-test rs-test
+
+bootstrap:
+    bun install
+    uv lock
+    uv sync
+
+ci: js-lockfile-law py-lockfile-law fmt-check lint-check type test

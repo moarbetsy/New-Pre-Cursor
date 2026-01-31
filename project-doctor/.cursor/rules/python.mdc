@@ -1,0 +1,22 @@
+---
+description: Python development rules (uv, ruff, pyright)
+alwaysApply: false
+---
+
+# Python Development Rules
+
+## Toolchain
+- Runtime: uv
+- Linter: ruff
+- Formatter: ruff
+- Type Checker: pyright
+
+## Commands
+- Install: `uv sync`
+- Lint: `ruff check .`
+- Format: `ruff format .`
+- Type Check: `pyright .`
+
+## Virtual Environment
+- Path: `.venv`
+- Activate: `.\\.venv\\Scripts\\activate` (Windows) or `source .venv/bin/activate` (Unix)

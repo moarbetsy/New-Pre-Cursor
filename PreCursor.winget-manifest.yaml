@@ -1,0 +1,25 @@
+# PreCursor.winget-manifest.yaml
+# Winget package for one-command PreCursor setup (full repo + Cursor + tools).
+# Submit to https://github.com/microsoft/winget-pkgs
+#
+# Release: Create a GitHub release, attach a ZIP of winget-launcher/ (precursor.cmd + precursor.ps1).
+# Update InstallerUrl and InstallerSha256 below to match the release asset.
+
+Id: PreCursor.PreCursor
+Version: 1.0.0
+Name: PreCursor
+Description: One-command setup for PreCursor repo (Cursor IDE, UV/Bun/Git, governance rules, project-doctor). Run "precursor -Setup" after install.
+Publisher: PreCursor
+Homepage: https://github.com/MoarBetsy/New-Pre-Cursor
+License: MIT
+
+Installers:
+  - Architecture: x64
+    InstallerType: portable
+    InstallerUrl: https://github.com/MoarBetsy/New-Pre-Cursor/releases/download/v1.0.0/precursor-launcher-v1.0.0.zip
+    InstallerSha256: REPLACE_WITH_ACTUAL_SHA256_AFTER_RELEASE
+    Commands:
+      - precursor
+
+ManifestType: singleton
+ManifestVersion: 1.6.0

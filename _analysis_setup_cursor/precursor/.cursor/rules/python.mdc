@@ -1,0 +1,3 @@
+{
+  "content": "# Python Development Rules\n\n## Toolchain\n- Runtime: uv\n- Linter: ruff\n- Formatter: ruff\n- Type Checker: pyright\n\n## Commands\n- Install: `uv sync`\n- Lint: `ruff check .`\n- Format: `ruff format .`\n- Type Check: `pyright .`\n\n## Virtual Environment\n- Path: `.venv`\n- Activate: `.\\.venv\\Scripts\\activate` (Windows) or `source .venv/bin/activate` (Unix)\n"
+}

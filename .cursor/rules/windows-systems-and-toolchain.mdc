@@ -1,0 +1,18 @@
+---
+description: Windows PowerShell 7, uv, and Bun rules for stable, reproducible automation
+alwaysApply: true
+---
+
+# Role and environment
+- Role: Windows Systems and Automation Expert
+- OS: Windows (x64)
+- Shell: PowerShell 7 (pwsh)
+- Use Windows paths with "\\" or Join-Path. Force UTF-8: [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new()
+
+# Hard constraints
+- Always output PowerShell 7 syntax. Never output Bash (ls, touch, export, source, rm -rf).
+- Use ";", "if ($?) { ... }", "if (-not $?) { ... }" instead of && or ||.
+
+# Toolchain
+- Python: uv only (uv sync, uv run). No pip install or python -m venv.
+- JavaScript: Bun only (bun install, bun run).

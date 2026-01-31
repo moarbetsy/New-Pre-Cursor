@@ -1,0 +1,22 @@
+# setup-cursor.winget-manifest.yaml
+# Winget package manifest for setup-cursor
+# Submit this to https://github.com/microsoft/winget-pkgs
+
+Id: SetupCursor.SetupCursor
+Version: 1.0.0
+Name: Setup Cursor
+Description: Comprehensive development environment setup tool for Cursor IDE + PowerShell (winget-like)
+Publisher: Setup Cursor
+Homepage: https://github.com/moarbetsy/setup-cursor
+License: MIT
+
+Installers:
+  - Architecture: x64
+    InstallerType: portable
+    InstallerUrl: https://github.com/moarbetsy/setup-cursor/releases/download/v1.0.0/setup-cursor-v1.0.0.zip
+    InstallerSha256: 00610F34491A333F4243152DBA5EF588AEFF8BB079BBC7191EB40A712E2550E5
+    Commands:
+      - setup-cursor
+
+ManifestType: singleton
+ManifestVersion: 1.6.0
