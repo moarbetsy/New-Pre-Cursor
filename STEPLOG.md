@@ -327,3 +327,13 @@ Repo state: (workspace root)
 - **Decision:** continue
 
 ---
+
+## Step — Fix GitHub Actions Precursor CI (precursor.ps1 not found)
+
+- **Objective:** Fix CI failure "File not found precursor.ps1" when running `bun run precursor.ps1 -Scan --json` on ubuntu-latest.
+- **Files changed:** .github/workflows/precursor.yml — run from project-doctor via `working-directory`, use TypeScript CLI `bun run src/cli.ts scan --json` instead of .ps1; deduplicated repeated steps to one run.
+- **Commands run:** None (workflow fix only).
+- **Verification:** Workflow runs in project-doctor where precursor code lives; command uses Bun + TS CLI (works on Linux without PowerShell).
+- **Decision:** continue
+
+---

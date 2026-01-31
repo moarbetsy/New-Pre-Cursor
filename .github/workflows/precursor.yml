@@ -11,64 +11,13 @@ on:
 jobs:
   precursor:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: project-doctor
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run Precursor
-        run: bun run precursor.ps1 -Scan --json
+      - name: Run Precursor scan
+        run: bun run src/cli.ts scan --json
